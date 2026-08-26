@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GLENG Elétrica | Engenharia Elétrica em São Paulo</title>
+
+    <meta name="description" content="GLENG Elétrica — instalações elétricas, projetos, laudos, automação residencial, carregadores veiculares, CFTV e manutenção elétrica em São Paulo e regiões.">
+
+    <meta name="keywords" content="eletricista São Paulo, engenharia elétrica São Paulo, instalação elétrica, laudo elétrico, automação residencial, carregador veicular, projeto elétrico">
+
+    <meta name="author" content="GLENG Elétrica">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 18px 6%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #f5b400;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #f5b400;
+        }
+
+        .hero {
+            min-height: 650px;
+            background: linear-gradient(135deg, #111 0%, #222 60%, #333 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 80px 6%;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: auto;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 70px);
+            line-height: 1.05;
+            max-width: 800px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #f5b400;
+        }
+
+        .hero p {
+            font-size: 21px;
+            max-width: 700px;
+            margin-bottom: 35px;
+            color: #ddd;
+        }
+
+        .button {
+            display: inline-block;
+            background: #f5b400;
+            color: #111;
+            padding: 16px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            background: #ffc933;
+        }
+
+        section {
+            padding: 80px 6%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .services {
+            background: #f6f6f6;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .service {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+            transition: 0.2s;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .service h3 {
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .service p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            list-style: none;
+        }
+
+        .features li {
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .features li::before {
+            content: "✓";
+            color: #f5b400;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .cta {
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            background: #f6f6f6;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .contact-box h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #080808;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 6%;
+            font-size: 14px;
+        }
+
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 27px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            z-index: 2000;
+        }
+
+        @media (max-width: 900px) {
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 600px;
+                padding: 60px 6%;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+
+            .section-title,
+            .about h2,
+            .cta h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">GLENG <span>ELÉTRICA</span></div>
+
+        <div>
+            <a href="#servicos">Serviços</a>
+            <a href="#empresa">Empresa</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+
+        <h1>
+            Soluções elétricas para sua <span>casa ou empresa.</span>
+        </h1>
+
+        <p>
+            Instalações elétricas, engenharia, automação e infraestrutura
+            com atendimento profissional em São Paulo e regiões.
+        </p>
+
+        <a class="button"
+           href="https://wa.me/5511993923440?text=Olá%20GLENG%20Elétrica,%20gostaria%20de%20solicitar%20um%20orçamento."
+           target="_blank">
+            Solicitar orçamento pelo WhatsApp
+        </a>
+
+    </div>
+</section>
+
+<section class="services" id="servicos">
+    <div class="container">
+
+        <h2 class="section-title">Nossos serviços</h2>
+
+        <p class="section-subtitle">
+            Soluções elétricas e tecnológicas para ambientes residenciais,
+            comerciais e corporativos.
+        </p>
+
+        <div class="service-grid">
+
+            <div class="service">
+                <h3>⚡ Instalações Elétricas</h3>
+                <p>
+                    Instalações, adequações, reformas e manutenção
+                    de sistemas elétricos residenciais e comerciais.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>📋 Laudos e ART</h3>
+                <p>
+                    Laudos técnicos, inspeções e documentação
+                    de responsabilidade técnica.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>🏠 Automação</h3>
+                <p>
+                    Automação residencial e comercial,
+                    iluminação e integração de dispositivos.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>🔌 Carregadores Veiculares</h3>
+                <p>
+                    Instalação de carregadores para veículos elétricos
+                    com dimensionamento e proteção adequada.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>💡 Projetos Elétricos</h3>
+                <p>
+                    Projetos e soluções elétricas para residências,
+                    comércios e empresas.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>📹 CFTV e Segurança</h3>
+                <p>
+                    Sistemas de câmeras e infraestrutura
+                    para monitoramento e segurança.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>❄️ Climatização</h3>
+                <p>
+                    Infraestrutura e soluções para sistemas
+                    de climatização e ar-condicionado.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>🔧 Manutenção Elétrica</h3>
+                <p>
+                    Diagnóstico, manutenção preventiva e corretiva
+                    para instalações elétricas.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="empresa">
+    <div class="container about">
+
+        <div>
+            <h2>Engenharia e tecnologia para soluções elétricas.</h2>
+
+            <p>
+                A GLENG Elétrica atua com instalações elétricas,
+                engenharia, automação e infraestrutura tecnológica
+                para clientes residenciais, comerciais e corporativos.
+            </p>
+
+            <p>
+                Nosso objetivo é entregar soluções seguras,
+                funcionais e adequadas às necessidades de cada projeto.
+            </p>
+        </div>
+
+        <div>
+            <ul class="features">
+                <li>Atendimento profissional</li>
+                <li>Engenheiro eletricista responsável</li>
+                <li>Atendimento em São Paulo e regiões</li>
+                <li>Soluções residenciais e comerciais</li>
+                <li>Orçamento personalizado</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+
+        <h2>Precisa de uma solução elétrica?</h2>
+
+        <p>
+            Entre em contato com a GLENG Elétrica e solicite seu orçamento.
+        </p>
+
+        <a class="button"
+           href="https://wa.me/5511993923440?text=Olá%20GLENG%20Elétrica,%20gostaria%20de%20solicitar%20um%20orçamento."
+           target="_blank">
+            Falar com a GLENG pelo WhatsApp
+        </a>
+
+    </div>
+</section>
+
+<section class="contact" id="contato">
+    <div class="container">
+
+        <h2 class="section-title">Entre em contato</h2>
+
+        <div class="contact-box">
+
+            <h3>GLENG Elétrica</h3>
+
+            <p>
+                São Paulo - SP e regiões
+            </p>
+
+            <p>
+                WhatsApp: (11) 99392-3440
+            </p>
+
+            <br>
+
+            <a class="button"
+               href="https://wa.me/5511993923440?text=Olá%20GLENG%20Elétrica,%20gostaria%20de%20solicitar%20um%20orçamento."
+               target="_blank">
+                Solicitar orçamento
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 GLENG Elétrica — Engenharia, instalações e automação.
+</footer>
+
+<a class="whatsapp"
+   href="https://wa.me/5511993923440?text=Olá%20GLENG%20Elétrica,%20gostaria%20de%20solicitar%20um%20orçamento."
+   target="_blank"
+   aria-label="Falar com a GLENG Elétrica pelo WhatsApp">
+    ☎
+</a>
+
+</body>
+</html>
