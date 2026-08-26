@@ -13,6 +13,16 @@
     <meta name="author" content="GLENG Elétrica">
 
     <style>
+        :root {
+            --azul-gleng: #1A3046;
+            --laranja-gleng: #EF4B04;
+            --branco: #FFFFFF;
+            --cinza-claro: #F5F7F9;
+            --cinza-texto: #5B6570;
+            --cinza-borda: #E2E7EB;
+            --azul-escuro: #102235;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -25,18 +35,23 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            color: #222;
-            background: #fff;
+            color: var(--azul-gleng);
+            background: var(--branco);
             line-height: 1.6;
         }
 
+        /* =========================
+           HEADER
+        ========================= */
+
         header {
-            background: #111;
-            color: white;
+            background: var(--azul-gleng);
+            color: var(--branco);
             padding: 18px 6%;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
         }
 
         nav {
@@ -51,36 +66,65 @@
             font-size: 26px;
             font-weight: bold;
             letter-spacing: 1px;
+            color: var(--branco);
         }
 
         .logo span {
-            color: #f5b400;
+            color: var(--laranja-gleng);
         }
 
         nav a {
-            color: white;
+            color: var(--branco);
             text-decoration: none;
             margin-left: 25px;
             font-size: 15px;
+            font-weight: 500;
+            transition: 0.2s;
         }
 
         nav a:hover {
-            color: #f5b400;
+            color: var(--laranja-gleng);
         }
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
             min-height: 650px;
-            background: linear-gradient(135deg, #111 0%, #222 60%, #333 100%);
-            color: white;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--azul-escuro) 0%,
+                    var(--azul-gleng) 60%,
+                    #23435f 100%
+                );
+            color: var(--branco);
             display: flex;
             align-items: center;
             padding: 80px 6%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background: var(--laranja-gleng);
+            opacity: 0.08;
+            right: -150px;
+            bottom: -200px;
         }
 
         .hero-content {
             max-width: 1200px;
             margin: auto;
             width: 100%;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -91,31 +135,41 @@
         }
 
         .hero h1 span {
-            color: #f5b400;
+            color: var(--laranja-gleng);
         }
 
         .hero p {
             font-size: 21px;
             max-width: 700px;
             margin-bottom: 35px;
-            color: #ddd;
+            color: #E5EBF0;
         }
+
+        /* =========================
+           BOTÕES
+        ========================= */
 
         .button {
             display: inline-block;
-            background: #f5b400;
-            color: #111;
+            background: var(--laranja-gleng);
+            color: var(--branco);
             padding: 16px 28px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
             transition: 0.2s;
+            box-shadow: 0 5px 15px rgba(239, 75, 4, 0.22);
         }
 
         .button:hover {
             transform: translateY(-2px);
-            background: #ffc933;
+            background: #D94100;
+            box-shadow: 0 8px 20px rgba(239, 75, 4, 0.30);
         }
+
+        /* =========================
+           SEÇÕES
+        ========================= */
 
         section {
             padding: 80px 6%;
@@ -130,17 +184,22 @@
             text-align: center;
             font-size: 38px;
             margin-bottom: 15px;
+            color: var(--azul-gleng);
         }
 
         .section-subtitle {
             text-align: center;
-            color: #666;
+            color: var(--cinza-texto);
             max-width: 700px;
             margin: 0 auto 50px;
         }
 
+        /* =========================
+           SERVIÇOS
+        ========================= */
+
         .services {
-            background: #f6f6f6;
+            background: var(--cinza-claro);
         }
 
         .service-grid {
@@ -150,27 +209,33 @@
         }
 
         .service {
-            background: white;
+            background: var(--branco);
             padding: 30px 25px;
             border-radius: 8px;
-            border: 1px solid #e5e5e5;
+            border: 1px solid var(--cinza-borda);
             transition: 0.2s;
         }
 
         .service:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 25px rgba(26, 48, 70, 0.10);
+            border-color: var(--laranja-gleng);
         }
 
         .service h3 {
             margin-bottom: 12px;
             font-size: 20px;
+            color: var(--azul-gleng);
         }
 
         .service p {
-            color: #666;
+            color: var(--cinza-texto);
             font-size: 15px;
         }
+
+        /* =========================
+           SOBRE
+        ========================= */
 
         .about {
             display: grid;
@@ -182,44 +247,65 @@
         .about h2 {
             font-size: 40px;
             margin-bottom: 20px;
+            color: var(--azul-gleng);
+            line-height: 1.15;
         }
 
         .about p {
-            color: #555;
+            color: var(--cinza-texto);
             margin-bottom: 20px;
         }
 
         .features {
             list-style: none;
+            background: var(--cinza-claro);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid var(--laranja-gleng);
         }
 
         .features li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-weight: bold;
+            color: var(--azul-gleng);
+        }
+
+        .features li:last-child {
+            margin-bottom: 0;
         }
 
         .features li::before {
             content: "✓";
-            color: #f5b400;
+            color: var(--laranja-gleng);
             font-size: 20px;
+            font-weight: bold;
             margin-right: 10px;
         }
 
+        /* =========================
+           CTA
+        ========================= */
+
         .cta {
-            background: #111;
-            color: white;
+            background: var(--azul-gleng);
+            color: var(--branco);
             text-align: center;
         }
 
         .cta h2 {
             font-size: 42px;
             margin-bottom: 15px;
+            color: var(--branco);
         }
 
         .cta p {
-            color: #ccc;
+            color: #D9E1E8;
             margin-bottom: 30px;
         }
+
+        /* =========================
+           CONTATO
+        ========================= */
 
         .contact {
             text-align: center;
@@ -228,23 +314,37 @@
         .contact-box {
             max-width: 700px;
             margin: auto;
-            background: #f6f6f6;
+            background: var(--cinza-claro);
             padding: 40px;
             border-radius: 10px;
+            border-top: 4px solid var(--laranja-gleng);
         }
 
         .contact-box h3 {
             font-size: 28px;
             margin-bottom: 15px;
+            color: var(--azul-gleng);
         }
 
+        .contact-box p {
+            color: var(--cinza-texto);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
         footer {
-            background: #080808;
-            color: #aaa;
+            background: var(--azul-escuro);
+            color: #AEBBC6;
             text-align: center;
             padding: 30px 6%;
             font-size: 14px;
         }
+
+        /* =========================
+           WHATSAPP
+        ========================= */
 
         .whatsapp {
             position: fixed;
@@ -252,19 +352,29 @@
             bottom: 22px;
             width: 60px;
             height: 60px;
-            background: #25d366;
-            color: white;
+            background: #25D366;
+            color: var(--branco);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             font-size: 27px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
             z-index: 2000;
+            transition: 0.2s;
         }
 
+        .whatsapp:hover {
+            transform: scale(1.08);
+        }
+
+        /* =========================
+           TABLET
+        ========================= */
+
         @media (max-width: 900px) {
+
             .service-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -278,14 +388,35 @@
             }
         }
 
+        /* =========================
+           CELULAR
+        ========================= */
+
         @media (max-width: 600px) {
+
+            header {
+                padding: 16px 5%;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
             .hero {
                 min-height: 600px;
                 padding: 60px 6%;
             }
 
+            .hero h1 {
+                font-size: 42px;
+            }
+
             .hero p {
                 font-size: 18px;
+            }
+
+            .button {
+                padding: 15px 22px;
             }
 
             .service-grid {
@@ -301,6 +432,17 @@
             .cta h2 {
                 font-size: 32px;
             }
+
+            .contact-box {
+                padding: 30px 20px;
+            }
+
+            .whatsapp {
+                right: 18px;
+                bottom: 18px;
+                width: 56px;
+                height: 56px;
+            }
         }
     </style>
 </head>
@@ -309,17 +451,23 @@
 
 <header>
     <nav>
-        <div class="logo">GLENG <span>ELÉTRICA</span></div>
+
+        <div class="logo">
+            GLENG <span>ELÉTRICA</span>
+        </div>
 
         <div>
             <a href="#servicos">Serviços</a>
             <a href="#empresa">Empresa</a>
             <a href="#contato">Contato</a>
         </div>
+
     </nav>
 </header>
 
+
 <section class="hero">
+
     <div class="hero-content">
 
         <h1>
@@ -331,100 +479,149 @@
             com atendimento profissional em São Paulo e regiões.
         </p>
 
-        <a class="button"
-           href="https://wa.me/5511993923440?text=Olá%20GLENG%20Elétrica,%20gostaria%20de%20solicitar%20um%20orçamento."
-           target="_blank">
+        <a
+            class="button"
+            href="https://wa.me/5511993923440?text=Olá%20GLENG%20Elétrica,%20gostaria%20de%20solicitar%20um%20orçamento."
+            target="_blank"
+        >
             Solicitar orçamento pelo WhatsApp
         </a>
 
     </div>
+
 </section>
 
+
 <section class="services" id="servicos">
+
     <div class="container">
 
-        <h2 class="section-title">Nossos serviços</h2>
+        <h2 class="section-title">
+            Nossos serviços
+        </h2>
 
         <p class="section-subtitle">
             Soluções elétricas e tecnológicas para ambientes residenciais,
             comerciais e corporativos.
         </p>
 
+
         <div class="service-grid">
 
+
             <div class="service">
+
                 <h3>⚡ Instalações Elétricas</h3>
+
                 <p>
                     Instalações, adequações, reformas e manutenção
                     de sistemas elétricos residenciais e comerciais.
                 </p>
+
             </div>
 
+
             <div class="service">
+
                 <h3>📋 Laudos e ART</h3>
+
                 <p>
                     Laudos técnicos, inspeções e documentação
                     de responsabilidade técnica.
                 </p>
+
             </div>
 
+
             <div class="service">
+
                 <h3>🏠 Automação</h3>
+
                 <p>
                     Automação residencial e comercial,
                     iluminação e integração de dispositivos.
                 </p>
+
             </div>
 
+
             <div class="service">
+
                 <h3>🔌 Carregadores Veiculares</h3>
+
                 <p>
                     Instalação de carregadores para veículos elétricos
                     com dimensionamento e proteção adequada.
                 </p>
+
             </div>
 
+
             <div class="service">
+
                 <h3>💡 Projetos Elétricos</h3>
+
                 <p>
                     Projetos e soluções elétricas para residências,
                     comércios e empresas.
                 </p>
+
             </div>
 
+
             <div class="service">
+
                 <h3>📹 CFTV e Segurança</h3>
+
                 <p>
                     Sistemas de câmeras e infraestrutura
                     para monitoramento e segurança.
                 </p>
+
             </div>
 
+
             <div class="service">
+
                 <h3>❄️ Climatização</h3>
+
                 <p>
                     Infraestrutura e soluções para sistemas
                     de climatização e ar-condicionado.
                 </p>
+
             </div>
 
+
             <div class="service">
+
                 <h3>🔧 Manutenção Elétrica</h3>
+
                 <p>
                     Diagnóstico, manutenção preventiva e corretiva
                     para instalações elétricas.
                 </p>
+
             </div>
 
+
         </div>
+
     </div>
+
 </section>
 
+
 <section id="empresa">
+
     <div class="container about">
 
+
         <div>
-            <h2>Engenharia e tecnologia para soluções elétricas.</h2>
+
+            <h2>
+                Engenharia e tecnologia para soluções elétricas.
+            </h2>
 
             <p>
                 A GLENG Elétrica atua com instalações elétricas,
@@ -436,47 +633,83 @@
                 Nosso objetivo é entregar soluções seguras,
                 funcionais e adequadas às necessidades de cada projeto.
             </p>
+
         </div>
+
 
         <div>
+
             <ul class="features">
-                <li>Atendimento profissional</li>
-                <li>Engenheiro eletricista responsável</li>
-                <li>Atendimento em São Paulo e regiões</li>
-                <li>Soluções residenciais e comerciais</li>
-                <li>Orçamento personalizado</li>
+
+                <li>
+                    Atendimento profissional
+                </li>
+
+                <li>
+                    Engenheiro eletricista responsável
+                </li>
+
+                <li>
+                    Atendimento em São Paulo e regiões
+                </li>
+
+                <li>
+                    Soluções residenciais e comerciais
+                </li>
+
+                <li>
+                    Orçamento personalizado
+                </li>
+
             </ul>
+
         </div>
 
+
     </div>
+
 </section>
 
+
 <section class="cta">
+
     <div class="container">
 
-        <h2>Precisa de uma solução elétrica?</h2>
+        <h2>
+            Precisa de uma solução elétrica?
+        </h2>
 
         <p>
             Entre em contato com a GLENG Elétrica e solicite seu orçamento.
         </p>
 
-        <a class="button"
-           href="https://wa.me/5511993923440?text=Olá%20GLENG%20Elétrica,%20gostaria%20de%20solicitar%20um%20orçamento."
-           target="_blank">
+        <a
+            class="button"
+            href="https://wa.me/5511993923440?text=Olá%20GLENG%20Elétrica,%20gostaria%20de%20solicitar%20um%20orçamento."
+            target="_blank"
+        >
             Falar com a GLENG pelo WhatsApp
         </a>
 
     </div>
+
 </section>
 
+
 <section class="contact" id="contato">
+
     <div class="container">
 
-        <h2 class="section-title">Entre em contato</h2>
+        <h2 class="section-title">
+            Entre em contato
+        </h2>
+
 
         <div class="contact-box">
 
-            <h3>GLENG Elétrica</h3>
+            <h3>
+                GLENG Elétrica
+            </h3>
 
             <p>
                 São Paulo - SP e regiões
@@ -488,27 +721,37 @@
 
             <br>
 
-            <a class="button"
-               href="https://wa.me/5511993923440?text=Olá%20GLENG%20Elétrica,%20gostaria%20de%20solicitar%20um%20orçamento."
-               target="_blank">
+            <a
+                class="button"
+                href="https://wa.me/5511993923440?text=Olá%20GLENG%20Elétrica,%20gostaria%20de%20solicitar%20um%20orçamento."
+                target="_blank"
+            >
                 Solicitar orçamento
             </a>
 
         </div>
 
     </div>
+
 </section>
 
+
 <footer>
+
     © 2026 GLENG Elétrica — Engenharia, instalações e automação.
+
 </footer>
 
-<a class="whatsapp"
-   href="https://wa.me/5511993923440?text=Olá%20GLENG%20Elétrica,%20gostaria%20de%20solicitar%20um%20orçamento."
-   target="_blank"
-   aria-label="Falar com a GLENG Elétrica pelo WhatsApp">
+
+<a
+    class="whatsapp"
+    href="https://wa.me/5511993923440?text=Olá%20GLENG%20Elétrica,%20gostaria%20de%20solicitar%20um%20orçamento."
+    target="_blank"
+    aria-label="Falar com a GLENG Elétrica pelo WhatsApp"
+>
     ☎
 </a>
+
 
 </body>
 </html>
